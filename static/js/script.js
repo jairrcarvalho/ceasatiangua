@@ -1,3 +1,10 @@
+function mostrarLoader() {
+  document.querySelector('.loader').style.display = 'block';
+}
+
+function esconderLoader() {
+  document.querySelector('.loader').style.display = 'none';
+}
 
 const dataTB = document.getElementById('p_data')
 
@@ -76,7 +83,7 @@ items.forEach(function(item){
         conteudo:idConculta,
         url:url
     };
-
+    mostrarLoader()
 
     fetch('/teste', {
         method: 'POST',
@@ -90,6 +97,7 @@ items.forEach(function(item){
       var objeto = JSON.parse(data)
       console.log(objeto)
       preencherTabeJSON(objeto[0])
+      esconderLoader()
     });
      
     fetch('/data',{
